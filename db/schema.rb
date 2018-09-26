@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_25_184028) do
+ActiveRecord::Schema.define(version: 2018_09_26_211821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "user_leaves_requests", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "total_days"
+    t.integer "user_id"
+    t.integer "admin_id"
+    t.string "status"
+    t.text "reason_for_leave"
+    t.text "reason_for_rejection"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
