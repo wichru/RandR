@@ -1,0 +1,23 @@
+<p>
+  <strong>Employee:</strong>
+  <p>
+    <%= current_user %>
+  </p>
+  <p>
+  <strong>Type of request:</strong>
+</p>
+<%= @leave.leave_type %>
+<p>
+  <strong>Starting:</strong>
+  <%= @leave.start_date%>
+</p>
+<p>
+  <strong>Ending:</strong>
+  <%= @leave.end_date%>
+ <p>
+  <strong>Reason:</strong>
+  <%= @leave.reason_for_leave %>
+</p>
+</p>
+</p>
+<%= link_to 'Back', leaves_path %>
