@@ -3,38 +3,32 @@
   <%= link_to 'New request', new_leafe_path %>
 </p>
 <% if @leaves.present? %>
-  <% @leaves.each do |leave| %>
+
     <table>
-      <th>
+      <tr data-toggle="modal" data-target="#exampleModal">
         <td>ID |</td>
         <td>Type |</td>
         <td>Start Date |</td>
         <td>End Date |</td>
         <td>Status |</td>
         <td>Action</td>
-      </th>
+      </tr>
       <% count = 0 %>
       <% @leaves.each do |leave| %>
         <tr>
-          <td>
-            <%= count+=1 %></td>
-          <td>
-            <%= leave.leave_type %></td>
-          <td>
-            <%= leave.start_date %></td>
-          <td>
-            <%= leave.end_date %></td>
-          <td>
-            <%= leave.status %>
-          </td>
-          <td>
-            <%= link_to 'Edit', edit_leafe_path(leave) %>
-            <%= link_to 'Delete', leafe_path(leave), method: :delete %>
-          </td>
+          <td><%= count+=1 %></td>
+          <td><%= leave.leave_type %></td>
+          <td><%= leave.start_date %></td>
+          <td><%= leave.end_date %></td>
+          <td><%= leave.status %></td>
+
+          <td><%= link_to 'Edit', edit_leafe_path(leave) %></td>
+          <td><%= link_to 'Delete', leafe_path(leave), method: :delete,
+                                                       remote: true,
+                                                       class: 'js-destroy' %></td>
         </tr>
-  <% end %>
-</table>
 <% end %>
+</table>
 <% else %>
 <div>You don't have any pending requests</div>
 <% end %>

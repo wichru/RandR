@@ -35,6 +35,11 @@ class LeavesController < ApplicationController
 
   def destroy
     @leave.destroy!
+    respond_to do |format|
+      format.js
+      format.html { redirect_to leaves_path, notice: 'Request was successfully deleted.' }
+      format.json { render json: @leave, status: :ok, location: @leave }
+    end
 
     redirect_to leaves_path
   end
