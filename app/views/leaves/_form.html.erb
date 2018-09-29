@@ -1,29 +1,48 @@
 <%= render 'errors', resource: @leave %>
 
-<%= form_for @leave do |f| %>
-<p>
-  <%= f.label :Type %><br>
-  Tutaj rozwijalna lista
-</p>
 
-  <div class="input-group input-daterange">
-    <p>
-      <%= f.label :Starting %><br>
-      <%= f.text_field :start_date, class: "datepicker form-control" %>
-    </p>
-  </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Request Time off</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for :leave, url: leaves_path do |f| %>
+        <p>
+          <%= f.label :Type %><br>
+          <%= f.select :leave_type, Leave::LEAVE_TYPES %>
+        </p>
 
-  <div class="input-group input-daterange">
-    <p>
-      <%= f.label :Ending %><br>
-      <%= f.text_field :end_date, class: 'datepicker form-control' %>
-    </p>
+          <div class="input-group input-daterange">
+            <p>
+            <%= f.label :Starting %><br>
+            <%= f.text_field :start_date, class: "datepicker form-control" %>
+            </p>
+            <div class="input-group-addon"></div>
+            <p>
+              <%= f.label :Ending %><br>
+              <%= f.text_field :end_date, class: 'datepicker form-control' %>
+            </p>
+        </div>
+
+        <p>
+          <%= f.label :Reason_for_absence %><br>
+          <%= f.text_field :reason_for_leave %>
+        </p>
+        <p>
+
+        </p>
+
+      </div>
+      <div class="modal-footer">
+        <%= f.submit 'Send Request', class: 'btn btn-success'%>
+        <% end %>
+
+      </div>
+    </div>
   </div>
-<p>
-<%= f.label :Reason_for_absence %><br>
-<%= f.text_field :reason_for_leave %>
-</p>
-<p>
-<%= f.submit %>
-</p>
-<% end %>
+</div>

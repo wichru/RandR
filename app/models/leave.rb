@@ -3,5 +3,5 @@
 class Leave < ApplicationRecord
   validates :start_date, :end_date, presence: true
 
-  leaves_type = %i[Holiday Unpaid_Leave ElQuatro Maternity Paternity]
+  LEAVE_TYPES = %i[Holiday Unpaid_Leave ElQuatro Maternity Paternity]
 end

@@ -4,6 +4,7 @@ class LeavesController < ApplicationController
   before_action :provide_leave, only: %i[show edit update destroy]
 
   def index
+    @leave = Leave.new
     @leaves = Leave.all
   end
 
