@@ -15,27 +15,32 @@ class LeavesController < ApplicationController
   def create
     @leave = Leave.new(leave_params)
 
-    if @leave.save
-      redirect_to @leave
-    else
-      render 'new'
+    respond_to do |format|
+      if @leave.save
+        format.html
+        format.js
+      else
+        format.html
+        format.js
+        render 'new'
+      end
     end
   end
 
-  def edit
-    redirect_to do |format|
-      format.html
-      format.js
-    end
-  end
+  def edit; end
 
   def show; end
 
   def update
-    if @leave.update(leave_params)
-      redirect_to @leave
-    else
-      render 'edit'
+    respond_to do |format|
+      if @leave.update(leave_params)
+        format.html
+        format.js
+      else
+        format.html
+        format.js
+        render 'edit'
+      end
     end
   end
 
@@ -44,10 +49,7 @@ class LeavesController < ApplicationController
     respond_to do |format|
       format.js
       format.html { redirect_to leaves_path, notice: 'Request was successfully deleted.' }
-      format.json { render json: @leave, status: :ok, location: @leave }
     end
-
-    redirect_to leaves_path
   end
 
   private

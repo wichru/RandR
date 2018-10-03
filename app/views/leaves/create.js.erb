@@ -1,0 +1,6 @@
+$("#mynewpost").modal('hide');
+$(".leave_start_date").val('');
+$(".leave_end_date").val('');
+
+$("#container_leaves").prepend('<%= j render @leave %>');
+$("#leave_<%= @leave.id %>").hide().fadeIn(1000);

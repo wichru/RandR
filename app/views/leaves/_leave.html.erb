@@ -1,0 +1,71 @@
+
+<!-- Card for each leave -->
+<div class="col-md-4 blog-main box text-center" id="leave_<%= @leave.id %>">
+  <% @leaves.each do |leave| %>
+  <div class="card">
+  <h5 class="card-header"><%= leave_status %></h5>
+  <div class="card-body">
+    <h5 class="card-title"><%= leave.leave_type %></h5>
+    <p class="card-text">
+      <div style="color: #3BB2D6;"><%= leave.start_date%><br>
+      <%= leave.end_date %></div>
+
+    </p>
+      <br>
+
+      <div class="btn-group" role="group" aria-label="...">
+        <!-- Edit button -->
+          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myupdateleave_<%= @leave.id %>">
+            Edit
+          </button>
+          <%= link_to 'Delete', @leave, method: :delete, class: "btn btn-danger", remote: true %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
+<!-- Modal update action -->
+<%= form_for @leave, :method => :put, remote: true do |f| %>
+<div class="modal fade" id="myupdateleave_<%= @leave.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel">Send Request</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          <%= f.label :Type %><br>
+          <%= f.select :leave_type, Leave::LEAVE_TYPES %>
+        </p>
+        <div class="input-group input-daterange">
+            <p>
+            <%= f.label :Starting %><br>
+            <%= f.text_field :start_date, class: "datepicker form-control leave_start_date" %>
+            </p>
+            <div class="input-group-addon"></div>
+            <p>
+              <%= f.label :Ending %><br>
+              <%= f.text_field :end_date, class: "datepicker form-control leave_end_date" %>
+        </div>
+            </p>
+            <p>
+              <div class="field">
+                <%= f.label :Reason_for_absence %><br>
+                <%= f.text_field :reason_for_leave %>
+              </div>
+            </p>
+        </div>
+      <div class="modal-footer">
+        <%= f.submit 'Update', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+  </div>
+  <% end %>
+<!-- end -->
+
+</div>

@@ -83,6 +83,9 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    date_validator (0.9.0)
+      activemodel
+      activesupport
     devise (4.5.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -206,6 +209,9 @@ GEM
       rubyzip (~> 1.2)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
+    simple_form (4.0.1)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -252,6 +258,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  date_validator (~> 0.9.0)
   devise
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.1)
@@ -261,10 +268,12 @@ DEPENDENCIES
   pry
   puma (~> 3.11)
   rails (~> 5.2.1)
+  responders (~> 2.0)
   rspec-rails (~> 3.8)
   sass-rails (~> 5.0)
   selenium-webdriver
   shoulda-matchers (~> 3.1)
+  simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
