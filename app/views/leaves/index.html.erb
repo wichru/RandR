@@ -2,55 +2,61 @@
 
 <div class="container">
 
-  <!-- New request button-->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mynewLeave">
-    New request
+  <!-- Opening new modal button -->
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+    Book time off
   </button>
-
   <br>
   <hr>
+
   <div class="row" id="container_leaves">
-    <%= render 'leave' %>
+    <%= render @leaves %>
   </div>
 
-  <!-- Modal create action -->
-  <%= form_for @leave, remote: true do |f| %>
-  <div class="modal fade" id="mynewLeave" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <!-- Modal action new -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="myModalLabel">Send Request</h5>
+          <h5 class="modal-title" id="myModalLabel">Modal title</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>
-            <%= f.label :Type %><br>
-            <%= f.select :leave_type, Leave::LEAVE_TYPES %>
-          </p>
-          <div class="input-group input-daterange">
-            <p>
-              <%= f.label :Starting %><br>
-              <%= f.text_field :start_date, class: "datepicker form-control leave_start_date" %>
-            </p>
-            <div class="input-group-addon"></div>
-            <p>
-              <%= f.label :Ending %><br>
-              <%= f.text_field :end_date, class: "datepicker form-control leave_end_date" %>
-            </p>
-            <p>
-              <%= f.label :Reason_for_absence %><br>
-              <%= f.text_field :reason_for_leave, class: 'form-control' %>
-            </p>
-          </div>
-          <div class="modal-footer">
-            <%= f.submit 'Send Request', class: 'btn btn-success' %>
-          </div>
+          <%= render 'form' %>
         </div>
       </div>
     </div>
   </div>
-<% end %>
-<!-- End of modal -->
+
+  <!-- Cards for each leave -->
+  <div class="col-md-4 text-center">
+    <% @leaves.each do |leave| %>
+      <div class="card">
+        <div class="card-header">
+          <%= @status %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= leave.leave_type %></h5>
+          <p class="card-text">
+            <%= leave.start_date %>
+          </p>
+          <p>
+            <%= leave.end_date %>
+          </p>
+          <p>
+            <%= leave.reason_for_leave if leave.reason_for_leave.present? %>
+          </p>
+          <div class="card-footer">
+            <%= link_to 'Show', leafe_path(leave), class: 'btn btn-outline-info' %>
+            <%= link_to 'Edit', edit_leafe_path(leave), class: 'btn btn-outline-info' %>
+            <%= link_to 'Destroy', leafe_path(leave), method: :delete, class: 'btn btn-outline-danger js-delete-leave' %>
+          </div>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  </div>
+  <!-- Cards end -->
 </div>

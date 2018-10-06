@@ -9,9 +9,9 @@ class Leave < ApplicationRecord
 
   def leave_status
     if @leave.status == true
-      'Accepted'
+      @status = 'Accepted'
     else
-      'Pending'
+      @status = 'Pending'
     end
   end
 end

@@ -5,7 +5,7 @@ class LeavesController < ApplicationController
 
   def index
     @leave = Leave.new
-    @leaves = Leave.all
+    @leaves = Leave.all.order(created_at: :desc)
   end
 
   def new
@@ -19,6 +19,7 @@ class LeavesController < ApplicationController
       if @leave.save
         format.html
         format.js
+        redirect_to @leave
       else
         format.html
         format.js
@@ -36,6 +37,7 @@ class LeavesController < ApplicationController
       if @leave.update(leave_params)
         format.html
         format.js
+        redirect_to @leave
       else
         format.html
         format.js
@@ -45,6 +47,7 @@ class LeavesController < ApplicationController
   end
 
   def destroy
+    @leave = Leave.find(params[:id])
     @leave.destroy!
     respond_to do |format|
       format.js
