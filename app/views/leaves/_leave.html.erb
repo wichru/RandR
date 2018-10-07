@@ -1,6 +1,7 @@
 <!-- Cards for each leave -->
-<div class="card-deck w-auto p-3 text-center">
+<div class="row">
   <% @leaves.each do |leave| %>
+  <div class="col-sm-4">
     <div class="card">
       <div class="card-header">
         <%= @status %>
@@ -18,7 +19,7 @@
         </p>
         <div class="card-footer">
           <%= link_to 'Show', leafe_path(leave), class: 'btn btn-outline-info' %>
-          <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myupdateleave_<%= leave.id %>">
+          <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myupdateleave_<%= @leave.id %>">
             Edit
           </button>
           <!-- <%= link_to 'Edit', edit_leafe_path(leave), class: 'btn btn-outline-info' %> -->
@@ -27,13 +28,14 @@
       </div>
     </div>
     <br>
-    <% end %>
-</div>
+  </div>
+  <% end %>
+  </div>
 <!-- Cards -->
 
 <!-- Modal update action -->
 <%= form_for(@leave, method: :patch) do |f| %>
-<div class="modal fade" id="myupdateleave_<%= leave.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myupdateleave_<%= @leave.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
