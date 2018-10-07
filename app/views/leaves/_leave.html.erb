@@ -1,11 +1,43 @@
-<!-- Modal update action -->
+<!-- Cards for each leave -->
+<div class="card-deck w-auto p-3 text-center">
+  <% @leaves.each do |leave| %>
+    <div class="card">
+      <div class="card-header">
+        <%= @status %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= leave.leave_type %></h5>
+        <p class="card-text">
+          <%= leave.start_date %>
+        </p>
+        <p>
+          <%= leave.end_date %>
+        </p>
+        <p>
+          <%= leave.reason_for_leave if leave.reason_for_leave.present? %>
+        </p>
+        <div class="card-footer">
+          <%= link_to 'Show', leafe_path(leave), class: 'btn btn-outline-info' %>
+          <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myupdateleave_<%= leave.id %>">
+            Edit
+          </button>
+          <!-- <%= link_to 'Edit', edit_leafe_path(leave), class: 'btn btn-outline-info' %> -->
+          <%= link_to 'Destroy', leafe_path(leave), method: :delete, class: 'btn btn-outline-danger', remote: true %>
+        </div>
+      </div>
+    </div>
+    <br>
+    <% end %>
+</div>
+<!-- Cards -->
 
-<%= form_for @leave do |f| %>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Modal update action -->
+<%= form_for(@leave, method: :patch) do |f| %>
+<div class="modal fade" id="myupdateleave_<%= leave.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="myModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="myModalLabel" style="color: #660033">Change your request</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -32,10 +64,10 @@
         </div>
       </div>
       <div class="modal-footer">
-        <%= f.submit 'Send Request', class: 'btn btn-success'%>
+        <%= f.submit 'Update request', class: 'btn btn-success'%>
       </div>
     <% end %>
-
   </div>
 </div>
 </div>
+<!-- Modal update action -->

@@ -17,13 +17,11 @@ class LeavesController < ApplicationController
 
     respond_to do |format|
       if @leave.save
-        format.html
+        format.html { redirect_to @leave }
         format.js
-        redirect_to @leave
       else
-        format.html
+        format.html { render :new }
         format.js
-        render 'new'
       end
     end
   end
@@ -35,23 +33,20 @@ class LeavesController < ApplicationController
   def update
     respond_to do |format|
       if @leave.update(leave_params)
-        format.html
+        format.html { redirect_to @leave }
         format.js
-        redirect_to @leave
       else
-        format.html
+        format.html { render :edit }
         format.js
-        render 'edit'
       end
     end
   end
 
   def destroy
-    @leave = Leave.find(params[:id])
     @leave.destroy!
     respond_to do |format|
-      format.js
       format.html { redirect_to leaves_path, notice: 'Request was successfully deleted.' }
+      format.js
     end
   end
 
