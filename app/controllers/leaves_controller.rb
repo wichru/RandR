@@ -2,6 +2,7 @@
 
 class LeavesController < ApplicationController
   before_action :provide_leave, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   def index
     @leave = Leave.new
@@ -54,7 +55,7 @@ class LeavesController < ApplicationController
 
   def leave_params
     params.require(:leave).permit(:start_date, :end_date, :leave_type,
-                                  :reason_for_leave)
+                                  :reason_for_leave).merge(user: current_user)
   end
 
   def provide_leave

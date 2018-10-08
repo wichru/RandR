@@ -2,6 +2,7 @@
 
 class Admin::LeavesController < ApplicationController
   before_action :provide_leave, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   def index
     @leave = Leave.new
@@ -17,7 +18,7 @@ class Admin::LeavesController < ApplicationController
 
     respond_to do |format|
       if @leave.save
-        format.html { redirect_to @leave }
+        format.html { redirect_to [:admin, @leave] }
         format.js
       else
         format.html { render :new }
@@ -33,7 +34,7 @@ class Admin::LeavesController < ApplicationController
   def update
     respond_to do |format|
       if @leave.update(leave_params)
-        format.html { redirect_to @leave }
+        format.html { redirect_to [:admin, @leave] }
         format.js
       else
         format.html { render :edit }
@@ -45,7 +46,7 @@ class Admin::LeavesController < ApplicationController
   def destroy
     @leave.destroy!
     respond_to do |format|
-      format.html { redirect_to leaves_path, notice: 'Request was successfully deleted.' }
+      format.html { redirect_to admin_leaves_path, notice: 'Request was successfully deleted.' }
       format.js
     end
   end
@@ -54,7 +55,7 @@ class Admin::LeavesController < ApplicationController
 
   def leave_params
     params.require(:leave).permit(:start_date, :end_date, :leave_type,
-                                  :reason_for_leave)
+                                  :reason_for_leave).merge(user: current_user)
   end
 
   def provide_leave

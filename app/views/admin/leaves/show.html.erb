@@ -1,7 +1,7 @@
 <p>
   <strong>Employee:</strong>
   <p>
-    <%= current_user %>
+    <%= current_user.email %>
   </p>
   <p>
   <strong>Type of request:</strong>
@@ -20,4 +20,4 @@
 </p>
 </p>
 </p>
-<%= link_to 'Back', leaves_path %>
+<%= link_to 'Back', admin_leaves_path %>

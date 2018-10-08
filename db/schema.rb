@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_07_133844) do
+ActiveRecord::Schema.define(version: 2018_10_08_110711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,14 +19,14 @@ ActiveRecord::Schema.define(version: 2018_10_07_133844) do
     t.date "start_date"
     t.date "end_date"
     t.integer "total_days"
-    t.integer "user_id"
-    t.integer "admin_id"
     t.boolean "status", default: false
     t.string "leave_type"
     t.text "reason_for_leave"
     t.text "reason_for_rejection"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_leaves_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
