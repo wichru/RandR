@@ -8,8 +8,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
   </head>
 
   <body>
@@ -17,8 +15,13 @@
 
     <% if user_signed_in? %>
       <div>
+        <% if !current_user.first_name.present? %>
         <%= current_user.email %>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+        <% else %>
+        <%= current_user.first_name %>
+        <% end %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %> |
+        <%= link_to 'Settings', edit_user_registration_path %>
       </div>
     <% end %>
     <%= yield %>

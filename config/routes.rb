@@ -1,11 +1,16 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   devise_for :users
 
   root 'home#index'
 
-  resources :admin
+  namespace :admin do
+    get '', to: 'dashboard#index', as: '/'
+    resources :leaves
+  end
+
   resources :leaves
   # get 'leaves/:id/edit', to: 'leaves#edit', as: :edit_leave
   # patch 'articles/:id', to: 'articles#update'
