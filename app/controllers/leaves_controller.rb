@@ -6,7 +6,7 @@ class LeavesController < ApplicationController
 
   def index
     @leave = Leave.new
-    @leaves = Leave.all.order(created_at: :desc)
+    @leaves = Leave.all.order(created_at: :desc).includes(:user)
   end
 
   def new
