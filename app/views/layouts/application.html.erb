@@ -16,10 +16,10 @@
 
     <% if user_signed_in? %>
       <div>
-        <% if !current_user.first_name.present? %>
-        <%= current_user.email %>
+        <% if (current_user.first_name || current_user.last_name).present? %>
+        <%= full_name %>
         <% else %>
-        <%= current_user.first_name %>
+        Dupa
         <% end %>
         <%= link_to 'Sign out', destroy_user_session_path, method: :delete %> |
         <%= link_to 'Settings', edit_user_registration_path %>

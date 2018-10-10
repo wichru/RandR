@@ -42,6 +42,9 @@ gem 'bootstrap-datepicker-rails'
 gem 'date_validator', '~> 0.9.0'
 gem 'responders', '~> 2.0'
 gem 'simple_form'
+gem 'devise_invitable', '~> 1.7.0'
+gem 'config'
+
 
 
 group :development, :test do
