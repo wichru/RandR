@@ -7,12 +7,4 @@ class Leave < ApplicationRecord
   LEAVE_TYPES = %i[Holiday Unpaid_Leave ElQuatro Maternity Paternity]
 
   belongs_to :user, optional: true
-
-  def leave_status
-    if @leave.status == true
-      @status = 'Accepted'
-    else
-      @status = 'Pending'
-    end
-  end
 end

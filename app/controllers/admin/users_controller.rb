@@ -24,7 +24,8 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy!
+    @user = User.find(params[:id])
+    @user.destroy
 
     respond_to do |format|
       format.html { redirect_to admin_users_path, notice: 'User was successfully deleted!'}

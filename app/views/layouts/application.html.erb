@@ -16,11 +16,13 @@
 
     <% if user_signed_in? %>
       <div>
-        <% if (current_user.first_name || current_user.last_name).present? %>
+        <p>
+          <% if current_user.first_name.present? || current_user.last_name.present? %>
         <%= full_name %>
         <% else %>
-        Dupa
+        <%= current_user.email %>
         <% end %>
+        </p>
         <%= link_to 'Sign out', destroy_user_session_path, method: :delete %> |
         <%= link_to 'Settings', edit_user_registration_path %>
       </div>

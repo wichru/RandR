@@ -20,7 +20,7 @@
 
 <p>
   <%= f.label :Reason_for_absence %><br>
-  <%= f.text_field :reason_for_leave %>
+  <%= f.text_field :reason_for_leave, placeholder: 'Optional', class: 'form-control' %>
 </p>
 <div class="modal-footer">
   <%= f.submit 'Send Request', class: 'btn btn-success'%>
