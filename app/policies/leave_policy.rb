@@ -6,7 +6,7 @@ class LeavePolicy < ApplicationPolicy
       if user.admin?
         scope.all
       else
-        scope.where(user: user)
+        scope.where(user: user).includes(:user)
       end
     end
    end

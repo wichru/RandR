@@ -6,7 +6,7 @@ class LeavesController < ApplicationController
 
   def index
     @leave = Leave.new
-    @leaves = Leave.all.order(created_at: :desc).includes(:user)
+    @leaves = policy_scope(Leave).order(created_at: :desc)
     @user = User.new
   end
 
