@@ -23,11 +23,11 @@
       </div>
     <% end -%>
 
-    <div class="actions">
-      <%= f.submit "Log in", class: "btn btn-outline-success" %>
-    </div>
-  <% end %>
-  <div class="col-sm-2">
-  <%= render "devise/shared/links" %>
-  </div>
+    <p>
+      <div class="actions">
+        <%= f.submit "Log in", class: "btn btn-success loginbtn" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+    </p>
 </body>

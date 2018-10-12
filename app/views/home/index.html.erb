@@ -1,4 +1,6 @@
-<%= link_to 'Log in', new_user_session_path if user_signed_in? != true %>
-<h1>This is a landing page for all users</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<%= link_to 'Leaves', leaves_path %>
+<body class="welcome">
+  <%= link_to 'Log in', new_user_session_path if user_signed_in? != true %>
+  <h1>This is a landing page for all users</h1>
+  <p>Find me in app/views/home/index.html.erb</p>
+  <%= link_to 'Leaves', leaves_path %>
+</body>

@@ -17,7 +17,11 @@
 
 @import "bootstrap";
 
-#login {
+#login, #register, #changepassword, #forgotpassword {
   background: #484e66;
   color: #D8DBDE;
+}
+
+.loginbtn, .registerbtn {
+  width: 150px;
 }
