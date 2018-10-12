@@ -1,6 +1,6 @@
 <!-- Cards for each leave -->
 <div class="row">
-  <% @leaves.each do |leave| %>
+  <% policy_scope(@user.leaves).each do |leave| %>
   <div class="col-sm-4">
     <div class="card">
       <div class="card-header">
@@ -19,12 +19,14 @@
           <%= leave.reason_for_leave if leave.reason_for_leave.present? %>
         </p>
         <div class="card-footer">
+          <% if policy(leave).update? %>
           <%= link_to 'Show', leafe_path(leave), class: 'btn btn-outline-info' %>
           <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myupdateleave_<%= @leave.id %>">
             Edit
           </button>
+          <% end %>
           <!-- <%= link_to 'Edit', edit_leafe_path(leave), class: 'btn btn-outline-info' %> -->
-          <%= link_to 'Destroy', leafe_path(leave), method: :delete, class: 'btn btn-outline-danger', remote: true %>
+          <%= link_to 'Destroy', leafe_path(leave), method: :delete, class: 'btn btn-outline-danger' if policy(leave).destroy? %>
         </div>
       </div>
     </div>

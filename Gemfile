@@ -44,7 +44,7 @@ gem 'responders', '~> 2.0'
 gem 'simple_form'
 gem 'devise_invitable', '~> 1.7.0'
 gem 'config'
-
+gem 'pundit'
 
 
 group :development, :test do
