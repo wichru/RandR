@@ -1,3 +1,3 @@
-$("#leave_<%= @leave.id %>").fadeOut(500, function(){
-  $(this).remove();
+$('.delete-js').bind('ajax:success', function(){
+  $(this).closest('.card').fadeOut();
 });

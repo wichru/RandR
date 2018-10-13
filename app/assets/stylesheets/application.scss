@@ -16,8 +16,10 @@
  */
 
 @import "bootstrap";
+@import "font-awesome";
 
-#login, #register, #changepassword, #forgotpassword {
+
+#login, #register, #changepassword, #forgotpassword, #edituser {
   background: #484e66;
   color: #D8DBDE;
 }

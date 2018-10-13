@@ -1,6 +1,6 @@
-$("#myupdateleave_<%= @leave.id").modal('hide');
+$(".myupdateleave_<%= @leave.id").modal('hide');
 
-$("#leave_<%= @leave.id %>").fadeOut(500, function(){
+$(".leave_<%= @leave.id %>").fadeOut(500, function(){
   $(this).remove();
   $("leave-modal").prepend("<%= j render @leaves %>");
 });

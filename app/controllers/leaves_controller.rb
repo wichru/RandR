@@ -19,7 +19,7 @@ class LeavesController < ApplicationController
 
     respond_to do |format|
       if @leave.save
-        format.html { redirect_to @leave }
+        format.html { redirect_to leaves_path }
         format.js
       else
         format.html { render :new }

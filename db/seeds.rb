@@ -13,5 +13,5 @@
 
   5.times do
     Leave.create(
-      start_date: 2018-10-10, end_date: 2018-10-15, leave_type: "Gówno", reason_for_leave: 'ładowane seedem' )
+      start_date: 2018-10-10, end_date: 2018-10-15, leave_type: "Holiday", reason_for_leave: 'ładowane seedem' )
     end

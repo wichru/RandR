@@ -45,6 +45,8 @@ gem 'simple_form'
 gem 'devise_invitable', '~> 1.7.0'
 gem 'config'
 gem 'pundit'
+gem "font-awesome-rails"
+
 
 
 group :development, :test do
