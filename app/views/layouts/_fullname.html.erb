@@ -1,0 +1,7 @@
+<p>
+  <% if current_user.first_name.present? || current_user.last_name.present? %>
+<%= full_name %>
+<% else %>
+<%= current_user.email %>
+<% end %>
+</p>

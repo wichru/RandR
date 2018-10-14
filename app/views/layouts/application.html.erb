@@ -10,24 +10,15 @@
 
   </head>
 
-  <body>
-    <div class='container'>
-    <%= render './layouts/alerts' %>
+  <body class='master'>
+    <%= render './layouts/navigation' %>
 
-    <% if user_signed_in? %>
-      <div>
-        <p>
-          <% if current_user.first_name.present? || current_user.last_name.present? %>
-        <%= full_name %>
-        <% else %>
-        <%= current_user.email %>
-        <% end %>
-        </p>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %> |
-        <%= link_to 'Settings', edit_user_registration_path %>
-      </div>
-    <% end %>
-    <%= yield %>
-  </div>
+    <div class='container'>
+      <%= render './layouts/alerts' %>
+      <% if user_signed_in? %>
+        <%= render './layouts/fullname' %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
