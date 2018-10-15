@@ -32,14 +32,13 @@
   </div>
 </div>
 <!-- Cards -->
-
 <!-- Modal update action -->
 <%= form_for(leave, method: :patch) do |f| %>
 <div class="modal fade" id="myupdateleave_<%= @leave.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="myModalLabel" style="color: #660033">Change your request</h5>
+        <h5 class="modal-title" id="myModalLabel">Change your request</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -53,15 +52,31 @@
         <div class="input-group">
           <p>
             <%= f.label :Starting %><br>
-            <%= f.text_field :start_date, class: 'form-control' %>
+            <%= f.text_field :start_date,
+                              data: { provide: "datepicker",
+                                'date-language': 'pl',
+                                'date-format': 'yyyy-mm-dd',
+                                'weekStart': '6',
+                                'date-autoclose': 'true',
+                                'date-today-btn': 'linked',
+                                'date-today-highlight': 'true'},
+                              class: 'form-control input-sm' %>
           </p>
           <p>
             <%= f.label :Ending %><br>
-            <%= f.text_field :end_date, class: 'form-control' %>
+            <%= f.text_field :end_date,
+                              data: { provide: "datepicker",
+                                'date-language': 'pl',
+                                'date-format': 'yyyy-mm-dd',
+                                'weekStart': '6',
+                                'date-autoclose': 'true',
+                                'date-today-btn': 'linked',
+                                'date-today-highlight': 'true'},
+                              class: 'form-control input-sm' %>
           </p>
           <p>
             <%= f.label :Reason_for_absence %><br>
-            <%= f.text_field :reason_for_leave %>
+            <%= f.text_field :reason_for_leave, class: 'form-control' %>
           </p>
         </div>
       </div>
