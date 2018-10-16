@@ -17,19 +17,21 @@
 
 @import "bootstrap";
 @import "font-awesome";
+@import "feathericon";
+
 
 .master {
   background: #f9f7f9;
-};
+}
 
 #login, #register, #changepassword, #forgotpassword, #edituser {
   background: #484e66;
   color: #D8DBDE;
-};
+}
 
 .loginbtn, .registerbtn {
   width: 150px;
-};
+}
 
 .navLogo {
   float: left;
@@ -37,4 +39,4 @@
   color: #660033;
   letter-spacing: 3px;
   font-weight: bold;
-};
+}

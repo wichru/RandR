@@ -6,7 +6,7 @@ class Admin::LeavesController < ApplicationController
 
   def index
     @leave = Leave.new
-    @leaves = Leave.all.order(created_at: :desc)
+    @leaves = Leave.all.order(created_at: :desc).includes(:user)
   end
 
   def new
@@ -18,7 +18,7 @@ class Admin::LeavesController < ApplicationController
 
     respond_to do |format|
       if @leave.save
-        format.html { redirect_to [:admin, @leave] }
+        format.html { redirect_to admin_leaves_path }
         format.js
       else
         format.html { render :new }

@@ -1,20 +1,39 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <%= render './layouts/sidebar' %>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2 id="sayHello">Active Users</h2>
+      </div>
+      <h1>Admin::Users#index</h1>
+      <p>Find me in app/views/admin/users/index.html.erb</p>
 
-<table>
-    <tr>
-      <th>Email</th>
-    </tr>
+      <table>
+        <tr>
+          <th>Email</th>
+        </tr>
 
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.email %></td>
-      <td><%= user.admin%></td>      
-      <td><%= link_to 'Delete', admin_user_path(user), method: :delete %></td>
-    </tr>
-  <% end %>
-</table>
-<br>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <td><%= user.admin%></td>
+            <td><%= link_to 'Delete', admin_user_path(user), method: :delete %></td>
+          </tr>
+        <% end %>
+      </table>
+      <br>
 
-<%= link_to 'Add New User', new_admin_user_path %><br>
-<%= link_to 'Invite a user', new_user_invitation_path %>
+      <%= link_to 'Add New User', new_admin_user_path %><br>
+      <%= link_to 'Invite a user', new_user_invitation_path %>
+    </main>
+  </div>
+</div>
+
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+</body>

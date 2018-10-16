@@ -1,34 +1,32 @@
+</div>
 <%= render 'errors', resource: @leave %>
 
-<div class="container">
-
-  <!-- Opening new modal button -->
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-    Book time off
-  </button>
-  <br>
-  <hr>
-
-  <div class="container_leaves">
-    <%= render @leaves %>
-  </div>
-  <div id="leave-modal" class="modal fade"></div>
-
-  <!-- Modal action new -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="myModalLabel" style="color: #660033">Request time off</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= render 'form' %>
+<div class="container-fluid">
+  <div class="row">
+    <%= render './layouts/sidebar' %>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2 class="h2" id="sayHello">Employee requests</h1>
+        <div class="mb-2 mb-md-0">
+          <!-- New action modal with new button -->
+          <%= render './layouts/new' %>
         </div>
       </div>
-    </div>
-  </div>
+        <div class="container_leaves">
+          <%= render @leaves %>
+        </div>
+        <div id="leave-modal" class="modal fade"></div>
 
+
+
+    </main>
+  </div>
 </div>
+
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+</body>
