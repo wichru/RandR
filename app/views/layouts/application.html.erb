@@ -15,10 +15,9 @@
 
     <div class='container'>
       <%= render './layouts/alerts' %>
-      <% if user_signed_in? %>
-        <%= render './layouts/fullname' %>
-      <% end %>
+
       <%= yield %>
+
     </div>
   </body>
 </html>
