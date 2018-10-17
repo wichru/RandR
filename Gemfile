@@ -47,7 +47,7 @@ gem 'config'
 gem 'pundit'
 gem "font-awesome-rails"
 gem 'feathericon-sass'
-
+gem 'business_time'
 
 
 group :development, :test do
