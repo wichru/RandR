@@ -6,26 +6,41 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2 id="sayHello">Active Users</h2>
       </div>
-      <h1>Admin::Users#index</h1>
-      <p>Find me in app/views/admin/users/index.html.erb</p>
-
-      <table>
-        <tr>
-          <th>Email</th>
-        </tr>
-
-        <% @users.each do |user| %>
-          <tr>
-            <td><%= user.email %></td>
-            <td><%= user.admin%></td>
-            <td><%= link_to 'Delete', admin_user_path(user), method: :delete %></td>
-          </tr>
-        <% end %>
-      </table>
-      <br>
-
-      <%= link_to 'Add New User', new_admin_user_path %><br>
-      <%= link_to 'Invite a user', new_user_invitation_path %>
+      <%= link_to 'Add New User', new_admin_user_path, class: 'btn btn-secondary btn-sm add-btn' %>
+      <%= link_to 'Invite a user', new_user_invitation_path, class: 'btn btn-secondary btn-sm invite-btn' %>
+      <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Admin Role</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% count = 0 %>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= count+=1 %></td>
+      <% if user.first_name.present? %>
+        <td><%= user.first_name %></td>
+      <% else %>
+        <td><%= '----' %></td>
+      <% end %>
+      <% if user.last_name.present? %>
+        <td><%= user.last_name %></td>
+      <% else %>
+        <td><%= '----' %></td>
+      <% end %>
+      <td><%= user.email %></td>
+      <td><%= user.admin%></td>
+      <td><%= link_to 'Delete', admin_user_path(user), method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
     </main>
   </div>
 </div>
