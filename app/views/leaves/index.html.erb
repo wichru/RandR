@@ -1,8 +1,8 @@
 <div class="container">
 
-<!-- Rendering new action modal with new button -->
   <div class="indexUser">
     <strong id="daysLeft"><%= (26 - date_count('Holiday').to_i).to_s + 'Days left' %></strong>
+    <!-- Rendering new action modal with new button -->
     <%= render './layouts/new' %>
   </div>
   <%= render 'errors', resource: @leave %>

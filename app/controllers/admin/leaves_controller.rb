@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admin::LeavesController < ApplicationController
+class Admin::LeavesController < Admin::DashboardController
   before_action :provide_leave, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
