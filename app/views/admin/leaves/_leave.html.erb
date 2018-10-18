@@ -2,27 +2,27 @@
   <tbody>
     <% @leaves.each do |leave| %>
       <tr>
-        <div class='allrequests' "<% if leave.status != true %>">
-        <% if leave.user.first_name.present? || leave.user.last_name.present? %>
-          <td><%= full_name %></td>
-        <% else %>
-          <td><%= leave.user&.email %></td>
+        <% if leave.status != true %>
+          <% if leave.user.first_name.present? || leave.user.last_name.present? %>
+            <td><%= full_name %></td>
+          <% else %>
+            <td><%= leave.user&.email %></td>
+          <% end %>
+          <td>
+            <%= leave.leave_type %><br>
+            <small>
+              <%= leave.start_date %> to <%= leave.end_date %><br>
+              Pending Request<br>
+              <br>Deduction:<br>
+              Requested: <%= leave.created_at %>
+            </small>
+          </td>
+          <td>
+            <%= link_to 'View', leafe_path(leave) %>
+            <%= link_to 'Reject', admin_leafe_path(leave), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm delete-js' %>
+            <%= link_to 'Approved', approval_admin_leafe_path(leave), method: :post, class: 'btn btn-outline-primary btn-sm' %>
+          </td>
         <% end %>
-        <td>
-          <%= leave.leave_type %><br>
-          <small>
-            <%= leave.start_date %> to <%= leave.end_date %><br>
-            Pending Request<br>
-            <br>Deduction:<br>
-            Requested: <%= leave.created_at %>
-          </small>
-        </td>
-        <td>
-          <%= link_to 'View', leafe_path(leave) %>
-          <%= link_to 'Reject', leafe_path(leave), method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: 'btn btn-outline-danger delete-js' %>
-          <%= link_to 'Approved', approval_admin_leafe_path(leave), method: :post, class: 'btn btn-outline-primary' %>
-        </td>
-      </div "<% end %>">
       </tr>
     <% end %>
   </tbody>

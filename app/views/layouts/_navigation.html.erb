@@ -14,12 +14,14 @@
       <li class="nav-item">
         <%= link_to 'Home', root_path, class: 'nav-link' %>
       </li>
+      <% if user_signed_in? && current_user.admin? %>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <%= link_to 'Users', admin_users_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <%= link_to 'Pending Requests', '#', class: 'nav-link' %>
       </li>
+      <% end %>
       <li>
         <% if user_signed_in? %>
         <li class="nav-item dropdown">

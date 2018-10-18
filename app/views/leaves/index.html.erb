@@ -1,11 +1,13 @@
 <div class="container">
 
   <div class="indexUser">
-    <strong id="daysLeft"><%= (26 - date_count('Holiday').to_i).to_s + 'Days left' %></strong>
+    <%= render 'days_left' %>
+
     <!-- Rendering new action modal with new button -->
     <%= render './layouts/new' %>
   </div>
   <%= render 'errors', resource: @leave %>
+
   <!-- Full name rendering -->
   <div class="fullName">
     <% if user_signed_in? %>
@@ -13,31 +15,10 @@
     <% end %>
   </div>
   <hr>
+
+<!-- Statistic of day booked for user -->
   <div class="border-bottom bookedDays">
-    Contract allowance: 26
-    <p>
-      <%= 'Holiday: ' + date_count('Holiday').to_s if date_count('Holiday') != nil %>
-    </p>
-    <hr>
-    <p>
-      <strong><%= 'Day remaning: ' + (26 - date_count('Holiday').to_i).to_s %></strong>
-    </p>
-    <hr>
-    <p>
-      Non-deductible Leave:
-    </p>
-    <p>
-      <%= 'Unpaid_Leave: ' + date_count('Unpaid_Leave').to_s if date_count('Unpaid_Leave') != nil %>
-    </p>
-    <p>
-      <%= 'Maternity: ' + date_count('ElQuatro').to_s if date_count('ElQuatro') != nil %>
-    </p>
-    <p>
-      <%= 'Maternity: ' + date_count('Maternity').to_s if date_count('Maternity') != nil %>
-    </p>
-    <p>
-      <%= 'Paternity: ' + date_count('Paternity').to_s if date_count('Paternity') != nil %>
-    </p>
+    <%= render 'day_booked' %>
   </div>
 
 <!-- Leaves requests -->
