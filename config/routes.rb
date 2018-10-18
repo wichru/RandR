@@ -1,15 +1,18 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   devise_for :users
-  resources :users, :except => [:new]
+  resources :users, except: [:new]
 
   root 'home#index'
 
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'
-    resources :leaves
+    resources :leaves do
+      member do
+        post :approval
+      end
+    end
     resources :users
   end
 

@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class Admin::LeavesController < Admin::DashboardController
-  before_action :provide_leave, only: %i[show edit update destroy]
+  before_action :provide_leave, only: %i[show edit update destroy approval]
   before_action :authenticate_user!
 
   def index
     @leave = Leave.new
     @leaves = Leave.all.order(created_at: :desc).includes(:user)
+    @user = User.new
   end
 
   def new
@@ -48,6 +49,15 @@ class Admin::LeavesController < Admin::DashboardController
     respond_to do |format|
       format.html { redirect_to admin_leaves_path, notice: 'Request was successfully deleted.' }
       format.js
+    end
+  end
+
+  def approval
+    @leave.update(status: true)
+    if @leave.status == true
+      redirect_to admin_leaves_path, notice: 'Request successfully approved'
+    else
+      redirect_to admin_leaves_path, notice: 'Request rejected'
     end
   end
 
