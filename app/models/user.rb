@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :noticifations, foreign_key: :recipient_id
   has_many :leaves, dependent: :destroy
+
+  has_one_attached :image
 end

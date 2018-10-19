@@ -1,0 +1,17 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row {
+  display: flex;
+}
+
+.user_details {
+  flex: 50%;
+  #name {
+    color: #3e54b9;
+  }
+  h2, h4 {
+    color: #660033;
+  }
+}

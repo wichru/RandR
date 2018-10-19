@@ -1,0 +1,19 @@
+<div class="user_details">
+  <i><small id="name">First Name</small></i>
+  <h2><%= current_user.first_name %></h2>
+  <i><small id="name">Last Name</small></i>
+  <h2><%= current_user.last_name %></h2>
+  <i><small id="name">Role</small></i>
+  <% if current_user.admin != false %>
+  <h4>Admin</h4>
+  <% else %>
+  <h4>User</h4>
+  <% end %>
+  <i><small id="name">Email Address</small></i>
+  <h4><%= current_user.email.downcase %></h4>
+  <i><small id="name">Created at</small></i>
+  <h4><%= "#{time_ago_in_words(current_user.created_at)} ago" %></h4>
+  <p>
+    <%= link_to 'Update Account', edit_user_registration_path(current_user), class: 'btn btn-primary btn-sm' %>
+  </p>
+</div>
