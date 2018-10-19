@@ -65,7 +65,7 @@ class Admin::LeavesController < Admin::DashboardController
 
   def leave_params
     params.require(:leave).permit(:start_date, :end_date, :leave_type,
-                                  :reason_for_leave).merge(user: current_user)
+                                  :reason_for_leave, :status).merge(user: current_user)
   end
 
   def provide_leave

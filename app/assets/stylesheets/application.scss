@@ -19,6 +19,22 @@
 @import "font-awesome";
 @import "feathericon";
 
+#notice_wrapper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: #660033;
+  .notice, .alert {
+    padding: 2.5rem 0;
+    text-align: center;
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+}
 
 .master {
   background: #f9f7f9;

@@ -7,7 +7,6 @@ class LeavesController < ApplicationController
   def index
     @leave = Leave.new
     @leaves = policy_scope(Leave).order(created_at: :desc)
-    @user = User.new
   end
 
   def new
@@ -16,15 +15,17 @@ class LeavesController < ApplicationController
 
   def create
     @leave = Leave.new(leave_params)
+    @user = User.new
 
-    respond_to do |format|
-      if @leave.save
-        format.html { redirect_to leaves_path }
-        format.js
-      else
-        format.html { render :new }
-        format.js
-      end
+
+    if @leave.save
+      # Create the notifications
+      Notification.create(recipient: @user.admin, actor: current_user,
+                          action: 'requested', notifiable: @leave)
+
+      redirect_to leaves_path
+    else
+      render :new
     end
   end
 

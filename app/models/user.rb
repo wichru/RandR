@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :noticifations, foreign_key: :recipient_id
   has_many :leaves, dependent: :destroy
-
 end
