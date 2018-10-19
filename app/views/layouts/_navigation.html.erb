@@ -19,25 +19,23 @@
         <% end %>
       </li>
       <% if user_signed_in? && current_user.admin? %>
-      <li class="nav-item">
-        <%= link_to 'Users', admin_users_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Pending Requests', '#', class: 'nav-link' %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= fa_icon 'bell' %>
+        </a>
       </li>
       <% end %>
       <li>
         <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Settings
+            <%= fa_icon 'cog' %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to profile_path(id: current_user.id), class: 'dropdown-item' do %>
               My Account
               <%= fa_icon 'user' %>
             <% end %>
-            <a class="dropdown-item" href="#">Tutaj link</a>
             <%= link_to edit_user_registration_path(current_user), class: 'dropdown-item' do %>
               Edit Account
               <%= fa_icon 'users-cog' %>
