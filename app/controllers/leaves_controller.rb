@@ -19,10 +19,6 @@ class LeavesController < ApplicationController
 
 
     if @leave.save
-      # Create the notifications
-      Notification.create(recipient: @user.admin, actor: current_user,
-                          action: 'requested', notifiable: @leave)
-
       redirect_to leaves_path
     else
       render :new

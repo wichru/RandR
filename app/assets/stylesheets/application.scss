@@ -33,6 +33,7 @@
   width: 100%;
   z-index: 999;
   background: #660033;
+  opacity: .5;
   .notice, .alert {
     padding: 2.5rem 0;
     text-align: center;
@@ -51,12 +52,4 @@
 
 .loginbtn, .registerbtn {
   width: 150px;
-}
-
-.navLogo {
-  float: left;
-  font-size: 1.7em;
-  color: #660033;
-  letter-spacing: 3px;
-  font-weight: bold;
 }
