@@ -2,27 +2,29 @@
   <tbody>
     <% @leaves.each do |leave| %>
       <tr>
-        <% if leave.status != true %>
-          <% if leave.user.first_name.present? || leave.user.last_name.present? %>
-            <td><%= full_name %></td>
-          <% else %>
-            <td><%= leave.user&.email %></td>
-          <% end %>
-          <td>
-            <%= leave.leave_type %><br>
-            <small>
-              <%= leave.start_date %> to <%= leave.end_date %><br>
-              Pending Request<br>
-              <br>Deduction:<br>
-              Requested: <%= leave.created_at %>
-            </small>
-          </td>
-          <td>
-            <%= link_to 'View', admin_leafe_path(leave) %>
-            <%= link_to 'Reject', admin_leafe_path(leave), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm delete-js' %>
-            <%= link_to 'Approved', approval_admin_leafe_path(leave), method: :post, class: 'btn btn-outline-primary btn-sm' %>
-          </td>
+        <% if leave.user.first_name.present? || leave.user.last_name.present? %>
+          <td><%= leave.user.first_name + ' ' + leave.user.last_name %></td>
+        <% else %>
+          <td><%= leave.user&.email %></td>
         <% end %>
+        <td>
+          <%= leave.leave_type %><br>
+          <small>
+            <%= leave.start_date %> to <%= leave.end_date %><br>
+            <% if leave.status == true %>
+              <%= 'Approved' %><br>
+            <% else %>
+              <%= 'Pending' %><br>
+            <% end %>
+            <br>Deduction:<br>
+            Requested: <%= leave.created_at %>
+          </small>
+        </td>
+        <td>
+          <%= link_to 'View', admin_leafe_path(leave) %>
+          <%= link_to 'Reject', admin_leafe_path(leave), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm delete-js' %>
+          <%= link_to 'Approved', approval_admin_leafe_path(leave), method: :post, class: 'btn btn-outline-primary btn-sm' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
