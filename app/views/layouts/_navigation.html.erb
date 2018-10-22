@@ -19,11 +19,21 @@
         <% end %>
       </li>
       <% if user_signed_in? && current_user.admin? %>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= fa_icon 'bell' %>
+      <li class="nav-item dropdown" data-behavior="notifications">
+        <a class="nav-link dropdown-toggle" href="#" data-behavior="notifications-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= fa_icon 'bell' %><span data-behavior="unread-count"></span>
         </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" data-behavior="notification-items">
+          <!-- <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
       </li>
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+        <!-- </a> -->
+      <!-- </li> -->
       <% end %>
       <li>
         <% if user_signed_in? %>

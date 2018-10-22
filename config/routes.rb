@@ -18,7 +18,11 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  resources :notifications, only: %i[index]
+  resources :notifications, only: %i[index] do
+    collection do
+      post :mark_as_read
+    end
+  end
 
   resources :leaves
   # get 'leaves/:id/edit', to: 'leaves#edit', as: :edit_leave

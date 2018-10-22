@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :notifications, foreign_key: :recipient_id
   has_many :leaves, dependent: :destroy
+
+  scope :admins, -> { where(admin: true) }
 end
