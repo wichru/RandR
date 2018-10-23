@@ -18,7 +18,7 @@
 
 <!-- Statistic of day booked for user -->
   <div class="border-bottom bookedDays">
-    <%= render 'days_booked' %>
+    <%= render 'days_booked' if @leaves.present? %>
   </div>
 
 <!-- Print out leave requests -->
@@ -27,7 +27,12 @@
       <%= render @leaves %>
     <% else %>
       <div class="nilRequests">
-        <h3>Time to rest! You don't have pending requests!</h3>
+        <p>
+          <h3>Time to rest!</h3>
+        </p>
+        <p>
+          <h3>You don't have pending requests!</h3>
+        </p>
       </div>
     <% end %>
   </div>

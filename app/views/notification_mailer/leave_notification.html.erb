@@ -1,0 +1,6 @@
+<h1> New leave request (<%= @leave.leave_type %>).</h1>
+
+<p>
+  <%= @user.first_name %>'s new leave request is waiting in your pending approval path. Please check your
+  <%= link_to "pending approval holiday leaves", admin_leaves_url(@leave, anchor: dom_id(@leave)) %>
+</p>
