@@ -1,5 +1,5 @@
 <div class="container">
-
+<!-- Days left method -->
   <div class="indexUser">
     <%= render 'days_left' %>
 
@@ -21,7 +21,7 @@
     <%= render 'days_booked' %>
   </div>
 
-<!-- Leaves requests -->
+<!-- Print out leave requests -->
   <div class="container_leaves">
     <% if @leaves.present? %>
       <%= render @leaves %>

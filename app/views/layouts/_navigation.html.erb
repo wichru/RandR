@@ -18,9 +18,10 @@
         <%= link_to 'Home', root_path, class: 'nav-link' %>
         <% end %>
       </li>
+      <!-- Notifications for admin -->
       <% if user_signed_in? && current_user.admin? %>
       <li class="nav-item dropdown" data-behavior="notifications">
-        <a class="nav-link dropdown-toggle" href="#" data-behavior="notifications-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-behavior="notifications-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= fa_icon 'bell' %><span data-behavior="unread-count"></span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" data-behavior="notification-items">
@@ -30,12 +31,10 @@
           <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
       </li>
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-        <!-- </a> -->
-      <!-- </li> -->
       <% end %>
+      <!-- End of otifications for admin -->
       <li>
+        <!-- Settings/account details dropdown -->
         <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

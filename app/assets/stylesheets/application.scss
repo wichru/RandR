@@ -27,13 +27,17 @@
   padding: 20px;
 }
 
+.btn-success {
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
 #notice_wrapper {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
   background: #660033;
-  opacity: .5;
+  opacity: .8;
   .notice, .alert {
     padding: 2.5rem 0;
     text-align: center;
@@ -43,13 +47,4 @@
     color: #fff;
     letter-spacing: 1px;
   }
-}
-
-#login, #register, #changepassword, #forgotpassword, #edituser {
-  background: #484e66;
-  color: #D8DBDE;
-}
-
-.loginbtn, .registerbtn {
-  width: 150px;
 }

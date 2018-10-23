@@ -22,6 +22,7 @@
         <div class="input-group">
           <%= select_tag :status, options_for_select([['Approved', true], ['Pending', false]]) %>
           <%= submit_tag 'Filter' %>
+          <%= link_to 'Crear', admin_leaves_path, class: 'btn btn-secondary btn-sm' %>
         </div>
       <% end %>
         <div class="container_leaves">

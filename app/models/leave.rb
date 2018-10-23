@@ -17,8 +17,8 @@ class Leave < ApplicationRecord
 
   def create_notifications
     recipients.each do |recipient|
-      Notification.create(recipient: recipient, actor: self.user,
-        action: 'posted', notifiable: self)
+      Notification.create(recipient: recipient, actor: user,
+                          action: 'posted', notifiable: self)
     end
   end
 end

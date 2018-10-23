@@ -1,0 +1,22 @@
+.h2login {
+  float: right;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.field-register {
+  margin-bottom: 25px;
+}
+
+.field-register label {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+#login, #register, #changepassword, #forgotpassword, #edituser {
+  background: #484e66;
+  color: #D8DBDE;
+}
+
+.loginbtn, .registerbtn {
+  width: 150px;
+}

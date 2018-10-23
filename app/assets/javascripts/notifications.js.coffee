@@ -25,7 +25,7 @@ $ ->
 
       $("[data-behavior='unread-count']").text(items.length)
       $("[data-behavior='notification-items']").append(items)
-
+#
 # class Notifications
 #   constructor: ->
 #     @notifications = $("[data-behavior='notifications']")

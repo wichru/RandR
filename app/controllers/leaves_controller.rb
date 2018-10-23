@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class LeavesController < ApplicationController
-  before_action :provide_leave, only: %i[show edit update destroy approval]
+  before_action :provide_leave, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   def index
@@ -16,7 +16,6 @@ class LeavesController < ApplicationController
   def create
     @leave = Leave.new(leave_params)
     @user = User.new
-
 
     if @leave.save
       redirect_to leaves_path
@@ -46,15 +45,6 @@ class LeavesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to leaves_path, notice: 'Request was successfully deleted.' }
       format.js
-    end
-  end
-
-  def approval
-    @leave.update(status: true)
-    if @leave.status == true
-      redirect_to admin_leaves_path, notice: 'Request successfully approved'
-    else
-      redirect_to admin_leaves_path, notice: 'Request rejected'
     end
   end
 
