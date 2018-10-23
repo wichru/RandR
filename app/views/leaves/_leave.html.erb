@@ -35,7 +35,7 @@
             Edit
           </button>
           <% end %>
-            <%= link_to 'Cancel', leafe_path(leave), method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: 'btn btn-outline-danger delete-js' if policy(leave).destroy? %>
+            <%= link_to 'Cancel', leave_path(leave), method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: 'btn btn-outline-danger delete-js' if policy(leave).destroy? %>
           <% end %>
         </div>
       </div>

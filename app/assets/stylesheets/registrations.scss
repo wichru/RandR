@@ -1,3 +1,8 @@
+.login {
+  margin-top: 80px;
+  color: #D8DBDE;
+}
+
 .h2login {
   float: right;
   letter-spacing: 2px;
@@ -12,7 +17,7 @@
   font-size: 18px;
   letter-spacing: 1px;
 }
-#login, #register, #changepassword, #forgotpassword, #edituser {
+#mainlogin, #register, #changepassword, #forgotpassword, #edituser {
   background: #484e66;
   color: #D8DBDE;
 }
