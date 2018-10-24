@@ -10,7 +10,19 @@ class Leave < ApplicationRecord
 
   belongs_to :user, optional: true
 
+  def leave_type=(obj)
+    if obj.is_a?(String)
+      super sanitize_leave_type(obj)
+    else
+      super
+    end
+  end
+
   private
+
+  def sanitize_leave_type(text)
+    text.split.map(&:downcase).uniq
+  end
 
   def recipients
     User.admins
