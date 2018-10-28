@@ -6,7 +6,6 @@ class Admin::LeavesController < Admin::DashboardController
 
   def index
     @leave = Leave.new
-    @leaves = Leave.where('? = any(leave_type)', params[:query]) if params[:query].present?
 
     if params[:status].present?
       @leaves = Leave.where(status: params[:status])

@@ -5,8 +5,12 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2 id="sayHello">Active Users</h2>
       </div>
-      <%= link_to 'Add New User', new_admin_user_path, class: 'btn btn-secondary btn-sm add-btn' %>
-      <%= link_to 'Invite a user', new_user_invitation_path, class: 'btn btn-secondary btn-sm invite-btn' %>
+      <p>
+        <%= link_to 'Add New User', new_admin_user_path, class: 'btn btn-secondary btn-sm add-btn' %>
+      </p>
+      <p>
+        <%= link_to 'Invite a user', new_user_invitation_path, class: 'btn btn-secondary btn-sm invite-btn' %>
+      </p>
       <table class="table table-hover">
   <thead>
     <tr>
