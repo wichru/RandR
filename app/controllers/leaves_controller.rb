@@ -31,7 +31,7 @@ class LeavesController < ApplicationController
   def update
     respond_to do |format|
       if @leave.update(leave_params)
-        format.html { redirect_to @leave }
+        format.html { redirect_to leaves_path, notice: 'Request was successfully updated' }
         format.js
       else
         format.html { render :edit }

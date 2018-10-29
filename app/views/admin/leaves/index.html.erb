@@ -21,8 +21,8 @@
         <div class="input-group">
           <%= form_tag(admin_leaves_path, method: :get, remote: true) do %>
             <%= select_tag(:status, options_for_select([['Approved', true], ['Pending', false]]), { include_blank: true }) %>
-            <%= submit_tag 'Filter' %>
-            <%= link_to 'Crear', admin_leaves_path, class: 'btn btn-secondary btn-sm' %>
+            <%= submit_tag 'Filter', class: 'btn btn-secondary btn-sm' %>
+            <%= link_to 'Crear', admin_leaves_path, remote: true, class: 'btn btn-secondary btn-sm' %>
           <% end %>
         </div>
 
