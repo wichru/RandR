@@ -7,11 +7,11 @@ class Admin::LeavesController < Admin::DashboardController
   def index
     @leave = Leave.new
 
+    @leaves = Leave.includes(:user).order(created_at: :desc)
+                   .paginate(page: params[:page], per_page: 5)
+
     if params[:status].present?
-      @leaves = Leave.where(status: params[:status])
-    else
-      @leaves = Leave.includes(:user).order(created_at: :desc)
-                     .paginate(page: params[:page], per_page: 5)
+      @leaves = @leaves.where(status: params[:status])
     end
 
     respond_to do |format|
