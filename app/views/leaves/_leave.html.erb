@@ -31,7 +31,7 @@
         <% if leave.status != true %>
         <div class="card-footer">
           <% if policy(leave).update? %>
-          <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myupdateleave_<%= @leave.id %>">
+          <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myupdateleave_<%= leave.id %>">
             Edit
           </button>
           <% end %>
@@ -46,7 +46,7 @@
 <!-- Cards -->
 <!-- Modal update action -->
 <%= form_for(leave, method: :patch) do |f| %>
-  <div class="modal fade" id="myupdateleave_<%= @leave.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="myupdateleave_<%= leave.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
