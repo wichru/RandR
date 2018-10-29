@@ -49,6 +49,7 @@ gem "font-awesome-rails"
 gem 'feathericon-sass'
 gem 'business_time'
 gem 'sucker_punch', '~> 2.0'
+gem 'bootstrap-will_paginate'
 
 
 group :development, :test do

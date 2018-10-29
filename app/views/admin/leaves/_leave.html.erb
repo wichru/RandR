@@ -1,3 +1,6 @@
+<p>
+  <%= will_paginate @leaves, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+</p>
 <table class="table table-borderless table-hover">
   <tbody>
     <% @leaves.each do |leave| %>
@@ -29,3 +32,4 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @leaves, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>

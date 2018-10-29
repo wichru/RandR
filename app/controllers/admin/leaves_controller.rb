@@ -11,6 +11,12 @@ class Admin::LeavesController < Admin::DashboardController
       @leaves = Leave.where(status: params[:status])
     else
       @leaves = Leave.includes(:user).order(created_at: :desc)
+                     .paginate(page: params[:page], per_page: 5)
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
