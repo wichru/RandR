@@ -9,12 +9,14 @@ RSpec.describe Leave, type: :model do
     let(:start_date) { 2018 - 10 - 21 }
     let(:end_date) { 2018 - 10 - 22 }
 
+    subject { leave.valid? }
+
     context "when start date isn't before end date" do
       let(:start_date) { 2018-10-23}
       let(:end_date) { 2018-10-22}
 
       it "is invalid" do
-        expect(leave.valid?).to eq false
+        is_expected.to eq false
       end
     end
 
@@ -22,18 +24,16 @@ RSpec.describe Leave, type: :model do
       let(:start_date) { nil }
 
       it "is invalid" do
-        expect(leave.valid?).to eq false
+        is_expected.to eq false
       end
     end
-
 
     context "when end date doesn't exist" do
       let(:end_date) { nil }
 
       it "is invalid" do
-        expect(leave.valid?).to eq false
+        is_expected.to eq false
       end
     end
   end
-
 end
